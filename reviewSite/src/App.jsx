@@ -9,6 +9,7 @@ function App() {
       <div>
         <Header />
         <Vision />
+        <FindBusiness/>
       </div>
     </div>
   );
@@ -19,7 +20,7 @@ export default App
 function Header(){
   return (
     <div>
-      <div className="shadow-[0_5px_0_rgba(0,0,0,0.4)] bg-white p-2 flex justify-between  items-center ">
+      <div className="shadow-[0_5px_0_rgba(0,0,0,0.4)] bg-white p-2 flex justify-between items-center ">
         <div>
           <h1 className="text-[30px] text-lime-700 font-bold">
             African Business Directory
@@ -44,8 +45,17 @@ function Vision(){
 <div className="text-[40px] text-center text-white font-bold  mr-auto ml-auto">
  <h1> Shining a Spotlight on African Businesses to Increase Visibility,<br/>Build Credibility and Foster Trust.</h1>
 </div>
-
   )
+}
+
+function FindBusiness(){
+  return (
+    <div className=" flex justify-center mr-auto ml-auto">
+      <form>
+        <input placeholder="Find Business" />
+      </form>
+    </div>
+  );
 }
 
 
