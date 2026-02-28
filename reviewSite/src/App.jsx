@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import FindBusiness from '../businessesComponent/FindBusiness';
 import './App.css'
 
 function App() {
@@ -48,15 +47,7 @@ function Vision(){
   )
 }
 
-function FindBusiness(){
-  return (
-    <div className=" flex justify-center mr-auto ml-auto">
-      <form>
-        <input placeholder="Find Business" className="bg-white p-4 rounded-lg w-[500px]" />
-      </form>
-    </div>
-  );
-}
+
 
 
 
