@@ -18,17 +18,36 @@ function FindBusiness() {
     fetchBusinessURL();
   }, []);
 
-  function handleSelect(e) {
+  useEffect(function(){
+     if (!selected) return;
+    async function fetchBusiness(id) {
+       const res = await fetch (`${businessURL}/${id}`);
+       const data = await res.json() 
+       setBusinessInfo(data)
+    }
+    fetchBusiness(selected)
+  }, [selected])
+
+  function viewInfo(){
+    setBusinessInfo((businessInfo)=>({
+        ...businessInfo, name: businessInfo.name, location:businessInfo.location, id:businessInfo.id,
+    }))
+  }
+
+  function handleBusinessInfo(e) {
    e.preventDefault()
    const displayInfo={
-    name :businesses.name,
-    location: businesses.location,
+    location:businessInfo.location,
+    name:businessInfo.name,
+    id:businessInfo.id
    }
+   viewInfo(displayInfo)
+   setSelected(businessInfo.id)
   }
 
   return (
     <div className=" flex justify-center mr-auto ml-auto">
-      <form onSubmit={handleSelect}>
+      <form onSubmit={handleBusinessInfo}>
         <input
           placeholder="Find Business"
           className="bg-white p-4 rounded-lg w-[500px]"
@@ -40,19 +59,19 @@ function FindBusiness() {
         business={business}
         selected={selected}
         businesses={businesses}
+        businessInfo={businessInfo}
       />
     </div>
   );
 }
 export default FindBusiness;
 
-function BusinessDetails({ business, selected, businesses }) {
-  if (selected === business.id)
+function BusinessDetails({ business, selected, businesses, businessInfo }) {
+  if (selected === businessInfo.id)
     return (
-      <div>
-       
-
-        <h1>jjjj</h1>
+      <div>  
+     <h1>{businessInfo.name}</h1>
+     <p>{businessInfo.location}</p>
       </div>
     );
 }
