@@ -19,35 +19,24 @@ function FindBusiness() {
   }, []);
 
   useEffect(function(){
-     if (!selected) return;
+    if(!selected) return;
     async function fetchBusiness(id) {
        const res = await fetch (`${businessURL}/${id}`);
        const data = await res.json() 
        setBusinessInfo(data)
     }
-    fetchBusiness(selected)
+    fetchBusiness()
   }, [selected])
 
-  function viewInfo(){
-    setBusinessInfo((businessInfo)=>({
-        ...businessInfo, name: businessInfo.name, location:businessInfo.location, id:businessInfo.id,
-    }))
-  }
-
-  function handleBusinessInfo(e) {
-   e.preventDefault()
-   const displayInfo={
-    location:businessInfo.location,
-    name:businessInfo.name,
-    id:businessInfo.id
-   }
-   viewInfo(displayInfo)
-   setSelected(businessInfo.id)
+  function handleSubmit(e){
+    e.preventDefault()
+    const found = businesses.find((bus)=>bus.name === business )
+    setSelected(found)
   }
 
   return (
     <div className=" flex justify-center mr-auto ml-auto">
-      <form onSubmit={handleBusinessInfo}>
+      <form onSubmit={handleSubmit}>
         <input
           placeholder="Find Business"
           className="bg-white p-4 rounded-lg w-[500px]"
@@ -66,12 +55,12 @@ function FindBusiness() {
 }
 export default FindBusiness;
 
-function BusinessDetails({ business, selected, businesses, businessInfo }) {
-  if (selected === businessInfo.id)
+function BusinessDetails({selected, businessInfo}) {
+if(selected)
     return (
       <div>  
-     <h1>{businessInfo.name}</h1>
-     <p>{businessInfo.location}</p>
+     <h1>{selected.name}</h1>
+     <p>{selected.location}</p>
       </div>
     );
 }
