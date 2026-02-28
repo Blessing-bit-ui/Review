@@ -52,7 +52,7 @@ function FindBusiness(){
   return (
     <div className=" flex justify-center mr-auto ml-auto">
       <form>
-        <input placeholder="Find Business" />
+        <input placeholder="Find Business" className="bg-white p-4 rounded-lg w-[500px]" />
       </form>
     </div>
   );
