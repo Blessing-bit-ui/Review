@@ -8,7 +8,6 @@ function BusinessProvider({children}) {
       const [business, setBusiness] = useState("");
      // const [businessInfo, setBusinessInfo] = useState({})
       const [selected, setSelected] = useState(null);
-
       useEffect(function () {
           async function fetchBusinessURL() {
             const res = await fetch("http://localhost:7000/businesses");

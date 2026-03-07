@@ -1,24 +1,37 @@
 import { useState } from 'react'
 import FindBusiness from '../businessesComponent/FindBusiness';
+import BusinessRegistrationForm from '../businessesComponent/BusinessRegistrationForm';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import './App.css'
 
 function App() {
   return (
-    <div className="bg-lime-600 w-screen h-screen ">
       <div>
-        <Header />
-        <Vision />
+          <BrowserRouter>
         <BusinessProvider>
-          <FindBusiness />
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="business_registration_form" element={<BusinessRegistrationForm/>}/>
+            </Routes>
         </BusinessProvider>
-        <RegisterBusiness />
+        </BrowserRouter>
       </div>
-    </div>
   );
 }
 export default App
 
+function Home(){
+  return(
+    <div className="bg-lime-600 w-screen h-screen"  >
+      <Header/>
+      <Vision/>
+      <RegisterBusiness/>
+      <FindBusiness/>
+    </div>
+  )
+}
 
 function Header(){
   return (
@@ -52,11 +65,13 @@ function Vision(){
 }
 
 function RegisterBusiness(){
-  return(
+  return (
     <div>
-      <button>Register Business</button>
+      <NavLink to="/business_registration_form ">
+        Register Business
+      </NavLink>
     </div>
-  )
+  );
 }
 
 
