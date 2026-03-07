@@ -30,8 +30,8 @@ function FindBusiness() {
 
   function handleSubmit(e){
     e.preventDefault()
-    const found = businesses.find((bus)=>bus.name === business )
-    setSelected(found)
+   const found = businesses.find((bus)=> bus.name === business)
+   setSelected(found)
   }
 
   return (
@@ -55,7 +55,7 @@ function FindBusiness() {
 }
 export default FindBusiness;
 
-function BusinessDetails({selected, businessInfo}) {
+function BusinessDetails({selected, businessInfo, business}) {
 if(selected)
     return (
       <div>  

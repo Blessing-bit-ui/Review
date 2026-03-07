@@ -9,6 +9,7 @@ function App() {
         <Header />
         <Vision />
         <FindBusiness/>
+        <RegisterBusiness/>
       </div>
     </div>
   );
@@ -44,6 +45,14 @@ function Vision(){
 <div className="text-[40px] text-center text-white font-bold  mr-auto ml-auto">
  <h1> Shining a Spotlight on African Businesses to Increase Visibility,<br/>Build Credibility and Foster Trust.</h1>
 </div>
+  )
+}
+
+function RegisterBusiness(){
+  return(
+    <div>
+      <button>Register Business</button>
+    </div>
   )
 }
 
