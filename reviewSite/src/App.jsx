@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import FindBusiness from '../businessesComponent/FindBusiness';
+import { BusinessProvider } from '../ContextProvider/BusinessProvider';
 import './App.css'
 
 function App() {
@@ -8,8 +9,10 @@ function App() {
       <div>
         <Header />
         <Vision />
-        <FindBusiness/>
-        <RegisterBusiness/>
+        <BusinessProvider>
+          <FindBusiness />
+        </BusinessProvider>
+        <RegisterBusiness />
       </div>
     </div>
   );
