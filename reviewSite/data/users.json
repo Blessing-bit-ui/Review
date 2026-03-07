@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Jack",
+      "email": "jack@example.com",
+       "nationality":"Cameroonian",
+      "password": "qwerty"
+    },
+    {
+      "id": "2",
+      "name": "Blessing",
+      "email": "jack@example.com",
+      "nationality": "Cameroonian",
+      "password": "qwerty"
+    }
+  ]
+ 
+}

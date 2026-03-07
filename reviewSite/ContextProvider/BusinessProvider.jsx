@@ -1,6 +1,6 @@
 import {useEffect, useState, useContext, createContext} from "react"
 
-const Business_URL = "http://localhost:8000/businesses";
+const Business_URL = "http://localhost:11000/businesses";
 
 const BusinessContext = createContext();
 function BusinessProvider({children}) {

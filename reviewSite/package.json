@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch data/businesses.json --port 8000"
+    "watch:business": "json-server --watch data/businesses.json --port 11000",
+    "watch:user": "json-server --watch data/users.json --port 12000",
+    "server": "concurrently \"npm run watch:business\" \"npm run watch:user\""
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.0",
@@ -23,6 +25,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.2.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
