@@ -1,16 +1,16 @@
 import {useEffect, useState, useContext, createContext} from "react"
 
-const Business_URL = "http://localhost:7000/businesses";
+const Business_URL = "http://localhost:8000/businesses";
 
 const BusinessContext = createContext();
 function BusinessProvider({children}) {
     const [businesses, setBusinesses] = useState([]);
       const [business, setBusiness] = useState("");
       const [selected, setSelected] = useState(null);
-      const [registerBusiness, setRegisterBusiness] = useState({})
+
       useEffect(function () {
           async function fetchBusinessURL() {
-            const res = await fetch({Business_URL});
+            const res = await fetch(Business_URL);
             const data = await res.json();
             setBusinesses(data);
             console.log(data);
@@ -18,7 +18,7 @@ function BusinessProvider({children}) {
           fetchBusinessURL();
         }, []);
 
-         async function createBusiness(newBusiness){
+        async function createBusiness(newBusiness){
             const res = await fetch (`${Business_URL}`,{
                 method:"POST",
                 body:JSON.stringify(newBusiness),
@@ -27,9 +27,8 @@ function BusinessProvider({children}) {
                 }
             });
             const data = await res.json()
-            setRegisterBusiness(data)
+            setBusinesses((businesses)=>[...businesses, data])
          }
-      
       return (
         <BusinessContext.Provider
           value={{
@@ -39,7 +38,7 @@ function BusinessProvider({children}) {
             setSelected,
             businesses,
             setBusinesses,
-            createBusiness
+            createBusiness, 
           }}
         >
           {children}

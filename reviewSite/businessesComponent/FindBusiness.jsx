@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useBusiness } from "../ContextProvider/BusinessProvider";
 
-const businessURL = "http://localhost:7000/businesses";
+
 function FindBusiness() {
   const {
     business,

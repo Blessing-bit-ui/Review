@@ -1,39 +1,53 @@
- {
- "businesses": [
-  {
-    "id": 1,
-    "name": "Mama Nkem Foods",
-    "country": "Nigeria",
-    "city": "Lagos",
-    "category": "Food Processing",
-    "business creation date": "1/12/2020",
-    "business classification": "Big",
-    "description": "Mama Nkem Foods specializes in packaged traditional Nigerian spices and ready-to-cook soup mixes for local and diaspora markets.",
-    "password": "xxxxx"
-  },
-  {
-    "id": 2,
-    "name": "GreenHarvest Agro",
-    "country": "Ghana",
-    "city": "Kumasi",
-    "category": "Agriculture",
-    "business creation date": "1/12/2020",
-    "business classification": "Big",
-    "description": "GreenHarvest Agro produces and exports organic cocoa and palm oil products while supporting small-scale farmers.",
-    "password": "USYSTDT"
-  },
-  {
-    "id": 3,
-    "name": "BrightTech Solutions",
-    "country": "Cameroon",
-    "city": "Douala",
-    "category": "Technology Services",
-    "business creation date": "1/12/2020",
-    "business classification": "Small",
-    "description": "BrightTech Solutions provides software development, IT consulting, and digital transformation services for SMEs.",
-    "password": "HSHSHH"
-  }
-]
- }
-
- 
+{
+  "businesses": [
+    {
+      "id": "1",
+      "name": "Mama Nkem Foods",
+      "email": "jack7@example.com",
+      "country": "Nigeria",
+      "city": "Lagos",
+      "category": "Food Processing",
+      "business creation date": "1/12/2020",
+      "business classification": "Big",
+      "description": "Mama Nkem Foods specializes in packaged traditional Nigerian spices and ready-to-cook soup mixes for local and diaspora markets.",
+      "password": "xxxxx"
+    },
+    {
+      "id": "2",
+      "name": "GreenHarvest Agro",
+      "email": "jack@example.com",
+      "country": "Ghana",
+      "city": "Kumasi",
+      "category": "Agriculture",
+      "business creation date": "1/12/2020",
+      "business classification": "Big",
+      "description": "GreenHarvest Agro produces and exports organic cocoa and palm oil products while supporting small-scale farmers.",
+      "password": "USYSTDT"
+    },
+    {
+      "id": "3",
+      "name": "BrightTech Solutions",
+      "email": "jack27@example.com",
+      "country": "Cameroon",
+      "city": "Douala",
+      "category": "Technology Services",
+      "business creation date": "1/12/2020",
+      "business classification": "Small",
+      "description": "BrightTech Solutions provides software development, IT consulting, and digital transformation services for SMEs.",
+      "password": "HSHSHH"
+    },
+    {
+      "id": "c9fd",
+      "businessName": "Teaching personnel",
+      "email": "yembeblessing27@gmail.com",
+      "country": "United Kingdom",
+      "city": "Welwyn Garden City",
+      "category": "",
+      "date": "",
+      "classification": "",
+      "notes": "",
+      "password": ""
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
