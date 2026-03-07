@@ -1,5 +1,8 @@
 import {NavLink} from "react-router-dom"
+import { useBusiness } from "../ContextProvider/BusinessProvider";
 function BusinessRegistrationForm() {
+
+    const {createBusiness} = useBusiness() 
     return (
       <div>
         <form>

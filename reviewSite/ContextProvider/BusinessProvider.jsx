@@ -1,34 +1,35 @@
 import {useEffect, useState, useContext, createContext} from "react"
 
-const businessURL = "http://localhost:7000/businesses";
+const Business_URL = "http://localhost:7000/businesses";
 
 const BusinessContext = createContext();
 function BusinessProvider({children}) {
     const [businesses, setBusinesses] = useState([]);
       const [business, setBusiness] = useState("");
-     // const [businessInfo, setBusinessInfo] = useState({})
       const [selected, setSelected] = useState(null);
+      const [registerBusiness, setRegisterBusiness] = useState({})
       useEffect(function () {
           async function fetchBusinessURL() {
-            const res = await fetch("http://localhost:7000/businesses");
+            const res = await fetch({Business_URL});
             const data = await res.json();
             setBusinesses(data);
             console.log(data);
           }
           fetchBusinessURL();
         }, []);
-      
-        /*useEffect(function(){
-          if(!selected) return;
-          async function fetchBusiness(id) {
-             const res = await fetch (`${businessURL}/${id}`);
-             const data = await res.json() 
-             setBusinessInfo(data)
-          }
-          fetchBusiness()
-        }, [selected])*/
-      
 
+         async function createBusiness(newBusiness){
+            const res = await fetch (`${Business_URL}`,{
+                method:"POST",
+                body:JSON.stringify(newBusiness),
+                headers:{
+                    "Content-Type":"application/json",
+                }
+            });
+            const data = await res.json()
+            setRegisterBusiness(data)
+         }
+      
       return (
         <BusinessContext.Provider
           value={{
@@ -38,6 +39,7 @@ function BusinessProvider({children}) {
             setSelected,
             businesses,
             setBusinesses,
+            createBusiness
           }}
         >
           {children}
