@@ -9,10 +9,11 @@ function AuthProvider({children}) {
     const {users}= useUsers()
 
  function Login(email, password) {
-   const emailfound = businesses.find(
+   const businessfound = businesses.find(
      (bus) => bus.email === email && bus.password === password
    );
-   if (emailfound) {
+   const userFound = users.find((user)=>user.email === email && user.password === password)
+   if (businessfound || userFound) {
      setAuth(true);
    } else {
      setAuth(false);
@@ -21,7 +22,8 @@ function AuthProvider({children}) {
     return (
         <AuthContext.Provider value={{
           Login,
-          auth
+          auth,
+          setAuth
         }}>
   {children}
         </AuthContext.Provider>

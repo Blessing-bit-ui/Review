@@ -20,6 +20,90 @@
       "userEmail": "jjj",
       "userNationality": "Nigerian",
       "password": "jjj"
+    },
+    {
+      "id": "c67e",
+      "userName": "heloo",
+      "userEmail": "hi",
+      "userNationality": "Ghanian",
+      "password": "hh"
+    },
+    {
+      "id": "ab1c",
+      "userName": "hhh",
+      "userEmail": "hhh",
+      "userNationality": "Ghanian",
+      "password": "hhh"
+    },
+    {
+      "id": "75fa",
+      "userName": "jjj",
+      "userEmail": "jjj",
+      "userNationality": "Ghanian",
+      "password": "jjj"
+    },
+    {
+      "id": "20e5",
+      "userName": "hhh",
+      "userEmail": "hhh",
+      "userNationality": "Ghanian",
+      "password": "hhh"
+    },
+    {
+      "id": "07ef",
+      "userName": "hhh",
+      "userEmail": "hhh",
+      "userNationality": "Ghanian",
+      "password": "hhh"
+    },
+    {
+      "id": "b8fc",
+      "userName": "hhh",
+      "userEmail": "hhh",
+      "userNationality": "Ghanian",
+      "password": "hh"
+    },
+    {
+      "id": "dc77",
+      "userName": "ggg",
+      "userEmail": "ggg",
+      "userNationality": "Ghanian",
+      "password": "gg"
+    },
+    {
+      "id": "f5b6",
+      "userName": "hhh",
+      "email": "hhh",
+      "userNationality": "Ghanian",
+      "password": "hhh"
+    },
+    {
+      "id": "8ae2",
+      "userName": "hhh",
+      "email": "hhh",
+      "userNationality": "Ghanian",
+      "password": "hh"
+    },
+    {
+      "id": "9fa1",
+      "userName": "hhhh",
+      "email": "hhh",
+      "userNationality": "Ghanian",
+      "password": "hh"
+    },
+    {
+      "id": "cfb5",
+      "userName": "hh",
+      "email": "hh",
+      "userNationality": "Ghanian",
+      "password": "hh"
+    },
+    {
+      "id": "8cba",
+      "userName": "hh",
+      "email": "hh",
+      "userNationality": "Ghanian",
+      "password": "hh"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

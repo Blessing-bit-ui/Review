@@ -1,23 +1,39 @@
 import { useUsers } from "../ContextProvider/UsersProvider"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../ContextProvider/AuthProvider"
 
 function UsersForm() {
     const [userName, setUserName] = useState("")
     const [userEmail, setUserEmail] = useState("")
     const [userNationality, setuserNationality] = useState("")
-    const [password, setPassword] = useState("")  
-const {registerUser} = useUsers()
+    const [password, setPassword] = useState("") 
+      const [justRegistered, setJustRegistered] = useState(false);
+
+   const navigate = useNavigate() 
+const {registerUser, users} = useUsers()
+const {Login, auth, setAuth} = useAuth()
 
 function handleSubmit(e){
     e.preventDefault()
     const newUser={
         userName,
-        userEmail,
+        email:userEmail,
         userNationality,
         password
     }
     registerUser(newUser)
+    setJustRegistered(true)
+    
 }
+useEffect(()=>{
+  if (justRegistered) {
+    Login(userEmail, password)
+    navigate("/review")
+  }
+}, [users]);
+
+
     return (
       <div>
         <form onSubmit={handleSubmit}>
