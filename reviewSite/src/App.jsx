@@ -2,29 +2,46 @@ import { useState } from 'react'
 import FindBusiness from '../businessesComponent/FindBusiness';
 import BusinessRegistrationForm from '../businessesComponent/BusinessRegistrationForm';
 import UsersForm from '../UserComponent/UsersForm';
+import Applayout from '../Applayout';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
 import { UsersProvider } from '../ContextProvider/UsersProvider';
+import { AuthProvider } from '../ContextProvider/AuthProvider';
+import Login from '../Login';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import './App.css'
+import ProtectedApp from '../ProtectedApp';
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-      <UsersProvider>
-        <BusinessProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="business_registration_form"
-              element={<BusinessRegistrationForm />}
-            />
-            <Route path="user_signup_form" element={<UsersForm />} />
-          </Routes>
-        </BusinessProvider>
-        </UsersProvider>
-      </BrowserRouter>
+      
+        <BrowserRouter>
+          <UsersProvider>
+            <BusinessProvider>
+             <AuthProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route
+                  path="business_registration_form"
+                  element={<BusinessRegistrationForm />}
+                />
+                <Route path="user_signup_form" element={<UsersForm />} />
+                <Route path="login" element={<Login />} />
+                <Route
+                  path="review"
+                  element={
+                    <ProtectedApp>
+                      <Applayout />
+                    </ProtectedApp>
+                  }
+                />
+              </Routes>
+              </AuthProvider>
+            </BusinessProvider>
+          </UsersProvider>
+        </BrowserRouter>
+     
     </div>
   );
 }
@@ -35,9 +52,7 @@ function Home(){
     <div className="bg-lime-600 w-screen h-screen"  >
       <Header/>
       <Vision/>
-      <RegisterBusiness/>
       <FindBusiness/>
-      <UserSignUp/>
     </div>
   )
 }
@@ -50,15 +65,16 @@ function Header(){
           <h1 className="text-[30px] text-lime-700 font-bold">
             African Business Directory
           </h1>
-          <p class="text-green-700 font-bold">
-            Discover Africa's MarketPlace
-          </p>
+          <p class="text-green-700 font-bold">Discover Africa's MarketPlace</p>
         </div>
         <div className="flex justify-around w-6/12">
-          <p>Write a review</p>
-          <p> Industries</p>
           <p>About us</p>
-          <p>Login</p>
+          <p>Write a review</p>
+          <RegisterBusiness />
+          <UserSignUp />
+          <NavLink to="/login">
+           login
+          </NavLink>
         </div>
       </div>
     </div>
@@ -76,7 +92,7 @@ function Vision(){
 function RegisterBusiness(){
   return (
     <div>
-      <NavLink to="/business_registration_form ">
+      <NavLink to="/business_registration_form">
         Register Business
       </NavLink>
     </div>
@@ -92,6 +108,8 @@ function UserSignUp(){
     </div>
   )
 }
+
+
 
 
 
