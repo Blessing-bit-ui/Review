@@ -3,6 +3,7 @@ import FindBusiness from '../businessesComponent/FindBusiness';
 import BusinessRegistrationForm from '../businessesComponent/BusinessRegistrationForm';
 import UsersForm from '../UserComponent/UsersForm';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
+import { UsersProvider } from '../ContextProvider/UsersProvider';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import './App.css'
@@ -11,6 +12,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+      <UsersProvider>
         <BusinessProvider>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -21,6 +23,7 @@ function App() {
             <Route path="user_signup_form" element={<UsersForm />} />
           </Routes>
         </BusinessProvider>
+        </UsersProvider>
       </BrowserRouter>
     </div>
   );

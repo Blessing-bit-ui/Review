@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Jack",
       "email": "jack@example.com",
-       "nationality":"Cameroonian",
+      "nationality": "Cameroonian",
       "password": "qwerty"
     },
     {
@@ -13,7 +13,14 @@
       "email": "jack@example.com",
       "nationality": "Cameroonian",
       "password": "qwerty"
+    },
+    {
+      "id": "7e15",
+      "userName": "jjjj",
+      "userEmail": "jjj",
+      "userNationality": "Nigerian",
+      "password": "jjj"
     }
-  ]
- 
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

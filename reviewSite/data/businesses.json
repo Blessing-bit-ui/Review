@@ -47,6 +47,18 @@
       "classification": "",
       "notes": "",
       "password": ""
+    },
+    {
+      "id": "e883",
+      "businessName": "",
+      "email": "",
+      "country": "",
+      "city": "",
+      "category": "",
+      "date": "",
+      "classification": "",
+      "notes": "",
+      "password": ""
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
