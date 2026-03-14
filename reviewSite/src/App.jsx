@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import FindBusiness from '../businessesComponent/FindBusiness';
 import BusinessRegistrationForm from '../businessesComponent/BusinessRegistrationForm';
+import UsersForm from '../UserComponent/UsersForm';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
@@ -8,16 +9,20 @@ import './App.css'
 
 function App() {
   return (
-      <div>
-          <BrowserRouter>
+    <div>
+      <BrowserRouter>
         <BusinessProvider>
-            <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="business_registration_form" element={<BusinessRegistrationForm/>}/>
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="business_registration_form"
+              element={<BusinessRegistrationForm />}
+            />
+            <Route path="user_signup_form" element={<UsersForm />} />
+          </Routes>
         </BusinessProvider>
-        </BrowserRouter>
-      </div>
+      </BrowserRouter>
+    </div>
   );
 }
 export default App
@@ -29,6 +34,7 @@ function Home(){
       <Vision/>
       <RegisterBusiness/>
       <FindBusiness/>
+      <UserSignUp/>
     </div>
   )
 }
@@ -72,6 +78,16 @@ function RegisterBusiness(){
       </NavLink>
     </div>
   );
+}
+
+function UserSignUp(){
+  return(
+    <div>
+      <NavLink to="/user_signup_form">
+        Signup
+      </NavLink>
+    </div>
+  )
 }
 
 
