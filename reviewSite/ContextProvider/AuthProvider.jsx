@@ -4,7 +4,9 @@ import { useUsers } from "./UsersProvider";
 import { useContext, useState, useEffect, createContext} from "react";
 const AuthContext = createContext()
 function AuthProvider({children}) {
-    const [auth, setAuth] = useState(false)
+    const [auth, setAuth] = useState(()=>{
+      return JSON.parse(localStorage.getItem("auth")) || false
+    })
     const {businesses} = useBusiness()
     const {users}= useUsers()
 
@@ -15,15 +17,26 @@ function AuthProvider({children}) {
    const userFound = users.find((user)=>user.email === email && user.password === password)
    if (businessfound || userFound) {
      setAuth(true);
+     localStorage.setItem("auth", true)
+     console.log("Login successful, auth=true");
    } else {
      setAuth(false);
+     localStorage.setItem("auth", false)
+     console.log("Login failed, auth=false");
    }
  }
+
+ function forceLogin(){
+  setAuth(true)
+  localStorage.setItem("auth", true)
+ }
+
     return (
         <AuthContext.Provider value={{
           Login,
           auth,
-          setAuth
+          setAuth,
+          forceLogin
         }}>
   {children}
         </AuthContext.Provider>

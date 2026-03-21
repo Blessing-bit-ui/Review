@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import FindBusiness from '../businessesComponent/FindBusiness';
-import BusinessRegistrationForm from '../businessesComponent/BusinessRegistrationForm';
+import BusinessRegistrationForm from '../BusinessesComponent/BusinessRegistrationForm';
 import UsersForm from '../UserComponent/UsersForm';
 import Applayout from '../Applayout';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
@@ -15,7 +15,6 @@ import ProtectedApp from '../ProtectedApp';
 function App() {
   return (
     <div>
-      
         <BrowserRouter>
           <UsersProvider>
             <BusinessProvider>

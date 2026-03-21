@@ -1,25 +1,24 @@
 import {useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "./ContextProvider/AuthProvider"
+import { useUsers } from "./ContextProvider/UsersProvider"
+import { useBusiness } from "./ContextProvider/BusinessProvider"
 
 
 function Login() {
 const [loginEmail, setLoginEmail] = useState("")
 const [loginPassword, setLoginPassword] =useState("")
+const {users}=useUsers()
+const {businesses} = useBusiness()
 
 const navigate= useNavigate()
 const {Login, auth} = useAuth()
 
 function handleLoginForm(e){
     e.preventDefault()
-  if (loginEmail && loginPassword) {
     Login(loginEmail, loginPassword);
-  } 
+    navigate("/review")
 }
-useEffect(function(){
-if(auth)
-    navigate("/review");
-},[auth, navigate])
 
     return (
         <form onSubmit={handleLoginForm}>

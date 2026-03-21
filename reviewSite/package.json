@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "watch:business": "json-server --watch data/businesses.json --port 11000",
-    "watch:user": "json-server --watch data/users.json --port 12000",
+    "watch:business": "json-server --watch data/businesses.json --port 8000",
+    "watch:user": "json-server --watch data/users.json --port 10000",
     "server": "concurrently \"npm run watch:business\" \"npm run watch:user\""
   },
   "dependencies": {

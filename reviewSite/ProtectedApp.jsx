@@ -1,15 +1,16 @@
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "./ContextProvider/AuthProvider"
 import { useEffect } from "react"
+import { Navigate } from "react-router-dom";
 
 function ProtectedApp({children}) {
-    const {auth} =useAuth()
-    const navigate = useNavigate()
+  const { auth } = useAuth();
+  const navigate = useNavigate();
+  if (!auth) {
+    return <Navigate to="/" replace />;
+  }
 
-    useEffect(function(){
-        if(!auth) navigate("/")
-    }, [auth, navigate])
-    return auth ? children : null
+  return children;
 }
 
 export default ProtectedApp

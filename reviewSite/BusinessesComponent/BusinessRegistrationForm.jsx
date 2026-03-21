@@ -1,5 +1,7 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {NavLink} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../ContextProvider/AuthProvider";
 import { useBusiness } from "../ContextProvider/BusinessProvider";
 
 function BusinessRegistrationForm() {
@@ -12,10 +14,12 @@ const [date, setDate] = useState("")
 const [classification, setClassification] = useState("")
 const [notes, setNotes] = useState("")
 const [password, setPassword] =useState("")
+const [justRegistered, setJustRegistered] =useState(false)
 
-const {createBusiness} = useBusiness()
+const {createBusiness, businesses} = useBusiness()
+const { forceLogin} = useAuth() 
 
-
+const navigate=useNavigate()
 async function handleRegistrationForm(e){
     e.preventDefault()
     const newBusiness={
@@ -29,8 +33,10 @@ async function handleRegistrationForm(e){
         notes,
         password,
     }
-    await createBusiness(newBusiness);
-}
+    await createBusiness(newBusiness)
+    forceLogin()
+      navigate("/review")    
+    } 
     return (
       <div>
         <form onSubmit={handleRegistrationForm}>
