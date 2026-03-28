@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import FindBusiness from '../businessesComponent/FindBusiness';
 import BusinessRegistrationForm from '../BusinessesComponent/BusinessRegistrationForm';
+import BusinessCategories from '../BusinessesComponent/BusinessCategories';
 import UsersForm from '../UserComponent/UsersForm';
 import Applayout from '../Applayout';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
@@ -52,6 +53,7 @@ function Home(){
       <Header/>
       <Vision/>
       <FindBusiness/>
+      <BusinessCategories/>
     </div>
   )
 }
@@ -107,6 +109,7 @@ function UserSignUp(){
     </div>
   )
 }
+
 
 
 
