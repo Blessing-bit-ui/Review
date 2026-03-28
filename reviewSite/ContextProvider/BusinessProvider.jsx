@@ -6,14 +6,14 @@ const BusinessContext = createContext();
 function BusinessProvider({children}) {
     const [businesses, setBusinesses] = useState([]);
       const [business, setBusiness] = useState("");
-      const [selected, setSelected] = useState(null);
+      const [selected, setSelected] = useState(null); 
 
       useEffect(function () {
           async function fetchBusinessURL() {
             const res = await fetch(Business_URL);
             const data = await res.json();
             setBusinesses(data);
-            console.log(data);
+            console.log(data)
           }
           fetchBusinessURL();
         }, []);

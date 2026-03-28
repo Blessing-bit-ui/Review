@@ -899,6 +899,18 @@
       "notes": "",
       "password": "",
       "id": "CU0WaMZ9GIc"
+    },
+    {
+      "businessName": "Teaching personnel",
+      "email": "yembeblessing27@gmail.com",
+      "country": "United Kingdom",
+      "city": "Welwyn Garden City",
+      "category": "Tech",
+      "date": "",
+      "classification": "",
+      "notes": "",
+      "password": "",
+      "id": "hHmN3vK-y2k"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
