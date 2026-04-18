@@ -35,7 +35,19 @@
       "business classification": "Small",
       "description": "BrightTech Solutions provides software development, IT consulting, and digital transformation services for SMEs.",
       "password": "HSHSHH"
+    },
+    {
+      "businessName": "",
+      "email": "",
+      "country": "",
+      "city": "",
+      "category": "",
+      "date": "",
+      "classification": "",
+      "notes": "",
+      "password": "",
+      "id": "5cIRMAiv6IM"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
-    
