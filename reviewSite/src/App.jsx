@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import FindBusiness from '../businessesComponent/FindBusiness';
 import BusinessRegistrationForm from '../BusinessesComponent/BusinessRegistrationForm';
-import BusinessCategories from '../BusinessesComponent/BusinessCategories';
+import BusinessCategoriesList from '../BusinessesComponent/BusinessCategoriesList';
+import BusinessCategory from '../BusinessesComponent/BusinessCategory';
 import UsersForm from '../UserComponent/UsersForm';
 import Applayout from '../Applayout';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
@@ -22,6 +23,7 @@ function App() {
              <AuthProvider>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/category/:category" element={<BusinessCategory/>}/>
                 <Route
                   path="business_registration_form"
                   element={<BusinessRegistrationForm />}
@@ -53,7 +55,7 @@ function Home(){
       <Header/>
       <Vision/>
       <FindBusiness/>
-      <BusinessCategories/>
+      <BusinessCategoriesList/>
     </div>
   )
 }

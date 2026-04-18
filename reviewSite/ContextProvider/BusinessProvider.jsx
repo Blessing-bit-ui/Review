@@ -1,12 +1,13 @@
 import {useEffect, useState, useContext, createContext} from "react"
 
-const Business_URL = "http://localhost:8000/businesses";
+const Business_URL = "http://localhost:4000/businesses";
 
 const BusinessContext = createContext();
 function BusinessProvider({children}) {
     const [businesses, setBusinesses] = useState([]);
       const [business, setBusiness] = useState("");
       const [selected, setSelected] = useState(null); 
+      const [currentCategory, setCurrentCategory] = useState([])
 
       useEffect(function () {
           async function fetchBusinessURL() {
@@ -29,6 +30,12 @@ function BusinessProvider({children}) {
             const data = await res.json()
             setBusinesses((businesses)=>[...businesses, data])
          }
+
+         async function getCategories(category){
+          const res = await fetch(`${Business_URL}?category=${category}`)
+          const data = await res.json()
+          setCurrentCategory(data)
+         }
       return (
         <BusinessContext.Provider
           value={{
@@ -38,7 +45,9 @@ function BusinessProvider({children}) {
             setSelected,
             businesses,
             setBusinesses,
-            createBusiness, 
+            createBusiness,
+            currentCategory,
+            getCategories 
           }}
         >
           {children}
