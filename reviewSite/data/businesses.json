@@ -47,6 +47,18 @@
       "notes": "",
       "password": "",
       "id": "5cIRMAiv6IM"
+    },
+    {
+      "businessName": "",
+      "email": "",
+      "country": "",
+      "city": "",
+      "category": "",
+      "date": "",
+      "classification": "",
+      "notes": "",
+      "password": "",
+      "id": "fI8JVIjRCWE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

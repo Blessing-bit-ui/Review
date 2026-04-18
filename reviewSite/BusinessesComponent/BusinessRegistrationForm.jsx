@@ -46,7 +46,9 @@ async function handleRegistrationForm(e){
           {/*left side*/}
           <div className="relative flex-1 p-10 md:p-14">
             <div className="realtive z-10 flex h-full flex-col justify-center">
-              <h1>WELCOME TO VIEW AFRICA. REGISTER BUSINESS NOW!</h1>
+              <h1 className="text-3xl md:text-4xl font-semibold leading-tight text-white mb-6">
+                WELCOME TO VIEW AFRICA. REGISTER BUSINESS NOW!
+              </h1>
             </div>
           </div>
 
@@ -164,10 +166,23 @@ async function handleRegistrationForm(e){
                 />
                 <button
                   type="submit"
-                  className="bg-lime-600 flex items-center justify-center p-3 border rounded-lg font-bold hover:bg-black hover:text-lime-600"
+                  className="bg-lime-600 flex items-center
+                   justify-center p-3 border rounded-lg 
+                   font-bold hover:bg-black hover:text-lime-600"
                 >
                   Register Business
                 </button>
+                <div className="text-[10px] md:text-[15px]">
+                  Already have an account ?
+                  <NavLink
+                    to="/login"
+                    className="
+                  text-blue-600
+                  hover:underline"
+                  >
+                    Login
+                  </NavLink>
+                </div>
               </form>
             </div>
           </div>
