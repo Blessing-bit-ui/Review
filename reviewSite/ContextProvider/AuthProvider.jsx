@@ -30,6 +30,8 @@ function AuthProvider({children}) {
   setAuth(true)
   localStorage.setItem("auth", true)
  }
+  
+
 
     return (
         <AuthContext.Provider value={{

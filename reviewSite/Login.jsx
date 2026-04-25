@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./ContextProvider/AuthProvider";
 import { useUsers } from "./ContextProvider/UsersProvider";
 import { useBusiness } from "./ContextProvider/BusinessProvider";
+
 
 function Login() {
   const [loginEmail, setLoginEmail] = useState("");
@@ -13,11 +14,15 @@ function Login() {
 
   const navigate = useNavigate();
   const { Login, auth } = useAuth();
+  const location = useLocation()
+
+  const from = location.state?.from?.pathname || "/review"
 
   function handleLoginForm(e) {
     e.preventDefault();
     Login(loginEmail, loginPassword);
-    navigate("/review");
+   // navigate("/review");
+   navigate(from,{replace : true})
   }
 
   return (

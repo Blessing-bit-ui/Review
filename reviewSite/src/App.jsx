@@ -17,13 +17,20 @@ import ProtectedApp from '../ProtectedApp';
 function App() {
   return (
     <div>
-        <BrowserRouter>
-          <UsersProvider>
-            <BusinessProvider>
-             <AuthProvider>
+      <BrowserRouter>
+        <UsersProvider>
+          <BusinessProvider>
+            <AuthProvider>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/category/:category" element={<BusinessCategory/>}/>
+                <Route
+                  path="/category/:category"
+                  element={
+                    <ProtectedApp>
+                      <BusinessCategory />
+                    </ProtectedApp>
+                  }
+                />
                 <Route
                   path="business_registration_form"
                   element={<BusinessRegistrationForm />}
@@ -39,11 +46,10 @@ function App() {
                   }
                 />
               </Routes>
-              </AuthProvider>
-            </BusinessProvider>
-          </UsersProvider>
-        </BrowserRouter>
-     
+            </AuthProvider>
+          </BusinessProvider>
+        </UsersProvider>
+      </BrowserRouter>
     </div>
   );
 }
