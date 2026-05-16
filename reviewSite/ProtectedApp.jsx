@@ -8,7 +8,7 @@ function ProtectedApp({children}) {
   const location = useLocation()
   const navigate = useNavigate();
   if (!auth) {
-    return <Navigate to="/login" state={{from:location}} replace />;
+    return <Navigate to="/login" state={{from: location}} replace />;
   }
 
   return children;

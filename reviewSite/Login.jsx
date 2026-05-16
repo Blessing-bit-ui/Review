@@ -5,7 +5,6 @@ import { useAuth } from "./ContextProvider/AuthProvider";
 import { useUsers } from "./ContextProvider/UsersProvider";
 import { useBusiness } from "./ContextProvider/BusinessProvider";
 
-
 function Login() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -14,15 +13,15 @@ function Login() {
 
   const navigate = useNavigate();
   const { Login, auth } = useAuth();
-  const location = useLocation()
+  const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/review"
+  const from = location.state?.from?.pathname || "/review";
 
   function handleLoginForm(e) {
     e.preventDefault();
     Login(loginEmail, loginPassword);
-   // navigate("/review");
-   navigate(from,{replace : true})
+    // navigate("/review");
+    navigate(from, { replace: true });
   }
 
   return (
@@ -51,7 +50,9 @@ function Login() {
           <div className="relative z-10">
             <form onSubmit={handleLoginForm} className="space-y-4">
               <div>
-                <label className="block mb-1 font-bold">User Email/Business Email</label>
+                <label className="block mb-1 font-bold">
+                  User Email/Business Email
+                </label>
                 <input
                   className="w-full rounded-md border border-lime-600 px-4 p-2 outline-none hover:border-2 hover:border-black"
                   placeholder="Enter Email"

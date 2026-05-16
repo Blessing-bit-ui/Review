@@ -19,10 +19,12 @@ function AuthProvider({children}) {
      setAuth(true);
      localStorage.setItem("auth", true)
      console.log("Login successful, auth=true");
+      return true;
    } else {
      setAuth(false);
      localStorage.setItem("auth", false)
      console.log("Login failed, auth=false");
+       return false;
    }
  }
 

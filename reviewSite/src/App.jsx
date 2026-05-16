@@ -8,6 +8,7 @@ import Applayout from '../Applayout';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
 import { UsersProvider } from '../ContextProvider/UsersProvider';
 import { AuthProvider } from '../ContextProvider/AuthProvider';
+import { useAuth } from '../ContextProvider/AuthProvider';
 import Login from '../Login';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
@@ -67,6 +68,7 @@ function Home(){
 }
 
 function Header(){
+const { Login, auth } = useAuth();
   return (
     <div>
       <div className="shadow-[0_5px_0_rgba(0,0,0,0.4)] bg-white p-2 flex justify-between items-center ">
@@ -81,9 +83,13 @@ function Header(){
           <p>Write a review</p>
           <RegisterBusiness />
           <UserSignUp />
+          <div>
+            {Login ? <p>Welcome User</p> :
           <NavLink to="/login">
-           login
+          Login
           </NavLink>
+}
+          </div>
         </div>
       </div>
     </div>
