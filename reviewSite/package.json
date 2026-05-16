@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "watch:business": "json-server --watch data/businesses.json --port 8000",
     "watch:user": "json-server --watch data/users.json --port 9000",
-    "server": "concurrently \"npm run watch:business\" \"npm run watch:user\""
+    "watch:review": "json-server --watch data/reviews.json --port 7000",
+    "server": "concurrently \"npm run watch:business\" \"npm run watch:user\" \"npm run watch:review\" "
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.0",
