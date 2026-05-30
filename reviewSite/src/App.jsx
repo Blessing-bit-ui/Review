@@ -5,6 +5,7 @@ import BusinessCategoriesList from '../BusinessesComponent/BusinessCategoriesLis
 import BusinessCategory from '../BusinessesComponent/BusinessCategory';
 import UsersForm from '../UserComponent/UsersForm';
 import Applayout from '../Applayout';
+import Aboutus from '../InformationComponent.jsx/Aboutus';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
 import { UsersProvider } from '../ContextProvider/UsersProvider';
 import { AuthProvider } from '../ContextProvider/AuthProvider';
@@ -46,6 +47,7 @@ function App() {
                     </ProtectedApp>
                   }
                 />
+                <Route path="about_us" element={<Aboutus/>}/>
               </Routes>
             </AuthProvider>
           </BusinessProvider>
@@ -80,13 +82,14 @@ const { Login, auth } = useAuth();
           <p class="text-green-700 font-bold">Discover Africa's MarketPlace</p>
         </div>
         <div className="flex justify-around w-6/12">
-          <p>About us</p>
+          <NavLink to="/about_us"> About Us</NavLink>
           <p>Write a review</p>
           <RegisterBusiness />
           <UserSignUp />
           <div>
-            
+            {auth ? <>Welcome User</> :
             <NavLink to="/login">Login</NavLink>
+}
           </div>
         </div>
       </div>

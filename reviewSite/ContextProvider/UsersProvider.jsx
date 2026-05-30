@@ -13,14 +13,14 @@ useEffect(function(){
     async function fetchUser() {
     const res = await axios.get(base_UsersUrl)
    // const data = await res.json()
-    setUsers(res.data)
+    setUsers(res.data.users)
     }
     fetchUser()
 },[])
 
 async function registerUser(newUser){
     const res= await axios.post(base_UsersUrl, newUser)
-   setUsers((users)=> [...users, res.data]) 
+   setUsers((users)=> [...users, res.data.users]) 
 }
     return (
        <UsersContext.Provider value={{

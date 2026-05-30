@@ -7,6 +7,8 @@ function ProtectedApp({children}) {
   const { auth } = useAuth();
   const location = useLocation()
   const navigate = useNavigate();
+
+  console.log("Auth value:", auth)
   if (!auth) {
     return <Navigate to="/login" state={{from: location}} replace />;
   }
