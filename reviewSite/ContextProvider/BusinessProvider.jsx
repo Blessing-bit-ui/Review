@@ -29,7 +29,7 @@ function BusinessProvider({children}) {
          async function getCategories(category){
           const res = await axios.get(`${Business_URL}/${category}`)
           //const data = await res.json()
-          console.log(res)
+          console.log(res.data)
           setCurrentCategory(res.data)
          }
       return (

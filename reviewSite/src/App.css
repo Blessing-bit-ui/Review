@@ -1,2 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
+  --font-dancing: "Dancing Script", cursive;
+  --font-winky: "Winky Sans", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-size: inherit; /* Makes it follow Tailwind's text-* size */
+  line-height: 1;     /* Keeps it vertically centered */
+}
