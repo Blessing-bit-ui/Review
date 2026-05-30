@@ -57,14 +57,15 @@ function App() {
 export default App
 
 function Home(){
-  return(
-    <div className="bg-lime-600 w-screen h-screen"  >
-      <Header/>
-      <Vision/>
-      <FindBusiness/>
-      <BusinessCategoriesList/>
+  return (
+    <div className="bg-lime-600 w-screen h-screen">
+      <Header />
+      <Vision />
+      <FindBusiness />
+      <BusinessCategoriesList />
+      
     </div>
-  )
+  );
 }
 
 function Header(){
@@ -84,11 +85,8 @@ const { Login, auth } = useAuth();
           <RegisterBusiness />
           <UserSignUp />
           <div>
-            {Login ? <p>Welcome User</p> :
-          <NavLink to="/login">
-          Login
-          </NavLink>
-}
+            
+            <NavLink to="/login">Login</NavLink>
           </div>
         </div>
       </div>
@@ -110,6 +108,7 @@ function RegisterBusiness(){
       <NavLink to="/business_registration_form">
         Register Business
       </NavLink>
+      
     </div>
   );
 }
@@ -124,7 +123,15 @@ function UserSignUp(){
   )
 }
 
-
+function Review(){
+  return(
+    <div>
+      <NavLink to="/review">
+        Review
+      </NavLink>
+    </div>
+  )
+}
 
 
 

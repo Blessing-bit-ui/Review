@@ -5,7 +5,7 @@ import { useAuth } from "../ContextProvider/AuthProvider";
 import { useBusiness } from "../ContextProvider/BusinessProvider";
 
 function BusinessRegistrationForm() {
-const [businessName, setBusinessName] = useState("")
+const [name, setBusinessName] = useState("")
 const [email, setEmail] = useState("")
 const [country, setCountry] = useState("")
 const [city, setCity] = useState("")
@@ -23,7 +23,8 @@ const navigate=useNavigate()
 async function handleRegistrationForm(e){
     e.preventDefault()
     const newBusiness={
-        businessName,
+        id:crypto.randomUUID(),
+        name,
         email,
         country,
         city,
@@ -70,7 +71,7 @@ async function handleRegistrationForm(e){
                   <input
                     className="w-full rounded-md border border-lime-600 px-4 p-2 outline-none hover:border-2 hover:border-black"
                     placeholder="Enter Business Name"
-                    value={businessName}
+                    value={name}
                     onChange={(e) => setBusinessName(e.target.value)}
                   />
                 </div>

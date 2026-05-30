@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "../ContextProvider/AuthProvider"
 
 function UsersForm() {
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [userNationality, setuserNationality] = useState("");
+  const [name, setUserName] = useState("");
+  const [email, setUserEmail] = useState("");
+  const [nationality, setuserNationality] = useState("");
   const [password, setPassword] = useState("");
   const [justRegistered, setJustRegistered] = useState(false);
 
@@ -18,9 +18,10 @@ function UsersForm() {
   function handleSubmit(e) {
     e.preventDefault();
     const newUser = {
-      userName,
-      email: userEmail,
-      userNationality,
+      id:crypto.randomUUID(),
+      name,
+      email,
+      nationality,
       password,
     };
     registerUser(newUser);
@@ -60,7 +61,7 @@ function UsersForm() {
                 <input
                   className="w-full rounded-md border border-lime-600 px-4 p-2 outline-none hover:border-2 hover:border-black"
                   placeholder=" Enter Name"
-                  value={userName}
+                  value={name}
                   onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
@@ -69,7 +70,7 @@ function UsersForm() {
                 <input
                   className="w-full rounded-md border border-lime-600 px-4 p-2 outline-none hover:border-2 hover:border-black"
                   placeholder="Enter email"
-                  value={userEmail}
+                  value={email}
                   onChange={(e) => setUserEmail(e.target.value)}
                 />
               </div>
@@ -79,7 +80,7 @@ function UsersForm() {
                 </label>
                 <select
                   className="w-full rounded-md border border-lime-600 px-4 p-2 outline-none hover:border-2 hover:border-black"
-                  value={userNationality}
+                  value={nationality}
                   onChange={(e) => setuserNationality(e.target.value)}
                 >
                   <option value="Cameroonian">Cameroonian</option>

@@ -1,16 +1,10 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
-app = Flask(__name__)
-
-@app.route("/api/businesses", methods=["GET"])
-
-
-def users():
-    return(
-        {
-  "businesses": [
-    {
-      "id": "1",
+data = {
+    "businesses": [
+ {
+     "id": "1",
       "name": "Mama Nkem Foods",
       "email": "jack7@example.com",
       "country": "Nigeria",
@@ -45,57 +39,89 @@ def users():
       "description": "BrightTech Solutions provides software development, IT consulting, and digital transformation services for SMEs.",
       "password": "HSHSHH"
     },
-    {
-      "businessName": "",
-      "email": "",
-      "country": "",
-      "city": "",
-      "category": "",
-      "date": "",
-      "classification": "",
-      "notes": "",
-      "password": "",
-      "id": "5cIRMAiv6IM"
-    },
-    {
-      "businessName": "",
-      "email": "",
-      "country": "",
-      "city": "",
-      "category": "",
-      "date": "",
-      "classification": "",
-      "notes": "",
-      "password": "",
-      "id": "fI8JVIjRCWE"
-    },
-    {
-      "businessName": "Teaching personnel",
-      "email": "yembeblessing27@gmail.com",
-      "country": "United Kingdom",
-      "city": "Welwyn Garden City",
-      "category": "",
-      "date": "ggggg",
-      "classification": "",
-      "notes": "ggg",
-      "password": "0iiiii",
-      "id": "sVsAoeTSz4w"
-    },
-    {
-      "businessName": "fffdf",
-      "email": "yembeblessing27@gmail.com",
-      "country": "United Kingdom",
-      "city": "Welwyn Garden City",
-      "category": "",
-      "date": "ffddfdff",
-      "classification": "",
-      "notes": "dfffffffffs",
-      "password": "ssss",
-      "id": "G-mZgXlXUNk"
-    }
+   
   ],
+
+  "users": [
+    {
+      "id": "1",
+      "name": "Jack",
+      "email": "jack@example.com",
+      "nationality": "Cameroonian",
+      "password": "qwerty"
+    },
+    {
+      "id": "2",
+      "name": "Blessing",
+      "email": "jack@example.com",
+      "nationality": "Cameroonian",
+      "password": "qwerty"
+    }
+  ]
+
+   
+  }
+
+
+
+app = Flask(__name__)
+cors = CORS(app, origins= "*")
+
+@app.route("/api/businesses", methods=["GET"])
+
+
+def getbusinesses(): 
+    return jsonify(
+        {
+  "businesses" : data["businesses"]
 }
 )
 
+
+@app.route("/api/businesses/<category>", methods=["GET"])
+def getCategory(category):
+   filter_business= []
+   for business in data["businesses"]:
+     if business["category"] == category: 
+      filter_business.append(business) 
+   return filter_business
+
+@app.route("/api/businesses", methods=["POST"])
+
+def createBusiness():
+   newBusiness = request.json
+   data["businesses"].append(newBusiness)
+   return jsonify(newBusiness), 201
+  
+@app.route("/api/users", methods=["GET"])
+
+def getUsers():
+   return jsonify(
+      {
+         "users":data["users"]
+      }
+   )
+
+@app.route("/api/users", methods=["POST"])
+
+def createUser():
+   newUser = request.json
+   data["users"].append(newUser)
+   return jsonify(newUser), 201
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=7000)
+
+            
+   
+    
+
+
+    
+
+    
+
+
+#def getCategory(business):
+ #   if business["category"] == catergory?

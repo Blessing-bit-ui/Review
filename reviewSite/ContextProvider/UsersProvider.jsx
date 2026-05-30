@@ -1,29 +1,26 @@
 import {useEffect, useState, createContext, useContext} from "react"
-const base_UsersUrl = "http://localhost:9000/users";
+import axios from "axios";
+
+
+const base_UsersUrl = "http://127.0.0.1:7000/api/users";
 
 const UsersContext = createContext()
 
 function UsersProvider({children}) {
 const [users, setUsers] = useState([])
+
 useEffect(function(){
     async function fetchUser() {
-    const res = await fetch (base_UsersUrl)
-    const data = await res.json()
-    setUsers(data)
+    const res = await axios.get(base_UsersUrl)
+   // const data = await res.json()
+    setUsers(res.data)
     }
     fetchUser()
 },[])
+
 async function registerUser(newUser){
-    const res= await fetch (`${base_UsersUrl}`,{
-        method :"POST",
-        body:JSON.stringify(newUser),
-        headers:{ 
-            "Content-Type":"application/json"
-        }     
-    }
-)
-const data = await res.json()
-   setUsers((users)=> [...users, data]) 
+    const res= await axios.post(base_UsersUrl, newUser)
+   setUsers((users)=> [...users, res.data]) 
 }
     return (
        <UsersContext.Provider value={{

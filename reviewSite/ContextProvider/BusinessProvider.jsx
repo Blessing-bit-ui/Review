@@ -1,6 +1,7 @@
 import {useEffect, useState, useContext, createContext} from "react"
+import axios from "axios";
 
-const Business_URL = "http://localhost:8000/businesses";
+const Business_URL = "http://127.0.0.1:7000/api/businesses";
 
 const BusinessContext = createContext();
 function BusinessProvider({children}) {
@@ -11,30 +12,25 @@ function BusinessProvider({children}) {
 
       useEffect(function () {
           async function fetchBusinessURL() {
-            const res = await fetch(Business_URL);
-            const data = await res.json();
-            setBusinesses(data);
-            console.log(data)
+            const res = await axios.get(Business_URL);
+            //const data = await res.json();
+            setBusinesses(res.data.businesses);
+            console.log(res.data.businesses);
           }
           fetchBusinessURL();
         }, []);
 
         async function createBusiness(newBusiness){
-            const res = await fetch (`${Business_URL}`,{
-                method:"POST",
-                body:JSON.stringify(newBusiness),
-                headers:{
-                    "Content-Type":"application/json",
-                }
-            });
-            const data = await res.json()
-            setBusinesses((businesses)=>[...businesses, data])
+            const res = await axios.post(Business_URL, newBusiness)
+           // const data = await res.json()
+            setBusinesses((businesses)=>[...businesses, res.data])
          }
 
          async function getCategories(category){
-          const res = await fetch(`${Business_URL}?category=${category}`)
-          const data = await res.json()
-          setCurrentCategory(data)
+          const res = await axios.get(`${Business_URL}/${category}`)
+          //const data = await res.json()
+          console.log(res)
+          setCurrentCategory(res.data)
          }
       return (
         <BusinessContext.Provider
