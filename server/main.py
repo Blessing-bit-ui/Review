@@ -41,7 +41,6 @@ data = {
     },
    
   ],
-
   "users": [
     {
       "id": "1",
@@ -56,9 +55,30 @@ data = {
       "email": "jack@example.com",
       "nationality": "Cameroonian",
       "password": "qwerty"
-    }
-  ]
+    },
+  ],
 
+ "businessesreviews":[
+    {
+       "id":"2",
+      "comment": "hhshhsh"
+    },
+    {
+        "comment":"hello"
+    },
+    
+ ],
+
+ "usersreviews":[
+    {
+       "id":"2",
+      "comment": "hhshhsh"
+    },
+    {
+        "comment":"hello"
+    },
+    
+ ]
    
   }
 
@@ -108,6 +128,14 @@ def createUser():
    newUser = request.json
    data["users"].append(newUser)
    return jsonify(newUser), 201
+
+
+@app.route("/evaluate", methods=["POST"])
+def writeReview():
+   newcomment = request.json()
+   data["usersreviews"].append(newcomment)
+   return jsonify(newcomment), 201
+   
 
 
 if __name__ == "__main__":

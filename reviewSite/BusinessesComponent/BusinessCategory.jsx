@@ -29,6 +29,7 @@ useEffect(() => {
             <h1>{curr.name}</h1>
             <h2>{curr.email}</h2>
             <h1>Location {curr.country} <span>{curr.city}</span></h1>
+            <p>Write a review</p>
            </div>
           ))}
         </ul>
