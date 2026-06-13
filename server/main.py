@@ -58,16 +58,6 @@ data = {
     },
   ],
 
- "usersreviews":[
-    {
-       "id":"9",
-      "comment": "hhshhsh"
-    },
-    {
-        "comment":"hello"
-    },
-    
- ]
    
   }
 reviews = [
@@ -148,15 +138,28 @@ def getusersReview():
       }
    )
 
+#def writeReview():
+ #  newcomment = request.json()
+  # business_name = newcomment["name"]
+
+   #if business_name in reviews:
+    #  reviews[business_name].append(newcomment)
+   #else:
+    #  reviews[business_name] = newcomment  
+
+    #id is better
+
 @app.route("/api/reviews", methods=["POST"])
 def writeReview():
-   newcomment = request.json()
-   for names in reviews:
-    for business in data["businesses"]:
-      if reviews[names] == business["name"]:
-         reviews[names].append(newcomment)         
+   newcomment = request.get_json()
+   reviews.append(newcomment)
    return jsonify(newcomment), 201
+  
    
+   
+
+
+  
 
 
 if __name__ == "__main__":
