@@ -3,6 +3,7 @@ import { useBusiness } from "../ContextProvider/BusinessProvider"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../ContextProvider/AuthProvider"
+import { NavLink } from "react-router-dom"
 
 function BusinessCategory() {
 
@@ -25,12 +26,16 @@ useEffect(() => {
         <h1>Business in {category} category</h1>
         <ul>
           {currentCategory.map((curr) => (
-           <div key={curr.id}>
-            <h1>{curr.name}</h1>
-            <h2>{curr.email}</h2>
-            <h1>Location {curr.country} <span>{curr.city}</span></h1>
-            <p>Write a review</p>
-           </div>
+            <div key={curr.id}>
+              <NavLink to={`/name/${curr.name}`}>
+                <h1>{curr.name}</h1>
+                <h2>{curr.email}</h2>
+                <h1>
+                  Location {curr.country} <span>{curr.city}</span>
+                </h1>
+                <p>Write a review</p>
+              </NavLink>
+            </div>
           ))}
         </ul>
       </div>

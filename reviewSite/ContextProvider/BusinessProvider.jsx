@@ -8,7 +8,9 @@ function BusinessProvider({children}) {
     const [businesses, setBusinesses] = useState([]);
       const [business, setBusiness] = useState("");
       const [selected, setSelected] = useState(null); 
-      const [currentCategory, setCurrentCategory] = useState([])
+      const [currentCategory, setCurrentCategory] = useState([]);
+      const[reviews, setReviews] = useState([]);
+      const [review, setReview] = useState("")
 
       useEffect(function () {
           async function fetchBusinessURL() {
@@ -32,6 +34,12 @@ function BusinessProvider({children}) {
           console.log(res.data)
           setCurrentCategory(res.data)
          }
+
+         async function getbusiness(name){
+          const res = await axios.get(`${Business_URL}/${name}`)
+          console.log(res.data)
+          setBusiness(res.data)
+         }
       return (
         <BusinessContext.Provider
           value={{
@@ -43,7 +51,8 @@ function BusinessProvider({children}) {
             setBusinesses,
             createBusiness,
             currentCategory,
-            getCategories 
+            getCategories,
+            getbusiness
           }}
         >
           {children}

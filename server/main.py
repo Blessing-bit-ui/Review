@@ -52,26 +52,15 @@ data = {
     {
       "id": "2",
       "name": "Blessing",
-      "email": "jack@example.com",
+      "email": "yembeblessing27@gmail.com",
       "nationality": "Cameroonian",
       "password": "qwerty"
     },
   ],
 
- "businessesreviews":[
-    {
-       "id":"2",
-      "comment": "hhshhsh"
-    },
-    {
-        "comment":"hello"
-    },
-    
- ],
-
  "usersreviews":[
     {
-       "id":"2",
+       "id":"9",
       "comment": "hhshhsh"
     },
     {
@@ -81,6 +70,29 @@ data = {
  ]
    
   }
+reviews = [
+    {
+        "id": 1,
+        "business_id": "1",
+        "username": "Blessing",
+        "comment": "Lovely business",
+        "email": "yembeblessing27@gmail.com"
+    },
+    {
+        "id": 2,
+        "business_id": "1",
+        "username": "Jack",
+        "comment": "Good food",
+        "email": "jack@example.com"
+    },
+    {
+        "id": 3,
+        "business_id": "2",
+        "username": "Mary",
+        "comment": "Nice cocoa products",
+        "email": "mary@example.com"
+    }
+]
 
 
 
@@ -114,7 +126,6 @@ def createBusiness():
    return jsonify(newBusiness), 201
   
 @app.route("/api/users", methods=["GET"])
-
 def getUsers():
    return jsonify(
       {
@@ -129,11 +140,21 @@ def createUser():
    data["users"].append(newUser)
    return jsonify(newUser), 201
 
+@app.route("/api/usersreview", methods=["GET"])
+def getusersReview():
+   return jsonify(
+      {
+      "usersreviews":data["usersreviews"]
+      }
+   )
 
-@app.route("/evaluate", methods=["POST"])
+@app.route("/api/reviews", methods=["POST"])
 def writeReview():
    newcomment = request.json()
-   data["usersreviews"].append(newcomment)
+   for names in reviews:
+    for business in data["businesses"]:
+      if reviews[names] == business["name"]:
+         reviews[names].append(newcomment)         
    return jsonify(newcomment), 201
    
 

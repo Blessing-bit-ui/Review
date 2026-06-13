@@ -3,6 +3,7 @@ import FindBusiness from '../businessesComponent/FindBusiness';
 import BusinessRegistrationForm from '../BusinessesComponent/BusinessRegistrationForm';
 import BusinessCategoriesList from '../BusinessesComponent/BusinessCategoriesList';
 import BusinessCategory from '../BusinessesComponent/BusinessCategory';
+import BusinessPage from '../BusinessesComponent/BusinessPage';
 import UsersForm from '../UserComponent/UsersForm';
 import Applayout from '../Applayout';
 import Aboutus from '../InformationComponent.jsx/Aboutus';
@@ -36,6 +37,10 @@ function App() {
                 <Route
                   path="business_registration_form"
                   element={<BusinessRegistrationForm />}
+                />
+                <Route
+                path="/name/:name"
+                element={<BusinessPage/>}
                 />
                 <Route path="user_signup_form" element={<UsersForm />} />
                 <Route path="login" element={<Login />} />
