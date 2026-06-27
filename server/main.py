@@ -57,9 +57,8 @@ data = {
       "password": "qwerty"
     },
   ],
-
-   
   }
+
 reviews = [
     {
         "id": 1,
@@ -134,7 +133,7 @@ def createUser():
 def getusersReview():
    return jsonify(
       {
-      "usersreviews":data["usersreviews"]
+      "usersreviews":reviews
       }
    )
 
@@ -155,13 +154,6 @@ def writeReview():
    reviews.append(newcomment)
    return jsonify(newcomment), 201
   
-   
-   
-
-
-  
-
-
 if __name__ == "__main__":
     app.run(debug=True, port=7000)
 
