@@ -30,18 +30,24 @@ function BusinessProvider({children}) {
          }
 
          async function getCategories(category){
-          const res = await axios.get(`${Business_URL}/${category}`)
+         // const res = await axios.get(`${Business_URL}/${category}`)
           //const data = await res.json()
+          const res = await axios.get(
+            `${Business_URL}/category/${encodeURIComponent(category)}`,
+          );
           console.log(res.data)
           setCurrentCategory(res.data)
          }
-
+// encodeURIcOMPONENT MAKES TEXT SAFE TO PUT IN A URL. E.G WHEN TEXT HAS 
          async function getbusiness(name){
-         const res = await axios.get(
+         /*const res = await axios.get(
            `${Business_URL}/${encodeURIComponent(name)}`,
-         ); 
-          //const res = await axios.get(`${Business_URL}/${name}`)
-          console.log(res.data)
+         ); */
+        const res = await axios.get(
+          `${Business_URL}/name/${encodeURIComponent(name)}`,
+        ); 
+          //const res = await axios.get(`${Business_URL}/${name}`)  change this to match the new flask url
+          console.log("business returned:", res.data)
           setBusinessObj(res.data)
          }
       return (

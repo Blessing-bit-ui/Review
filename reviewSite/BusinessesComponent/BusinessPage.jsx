@@ -12,6 +12,7 @@ function BusinessPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+      console.log("URL name:", name);
     if (name) getbusiness(name);
   }, [name]);
 

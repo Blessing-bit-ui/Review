@@ -98,16 +98,18 @@ def getbusinesses():
 }
 )
 
-
-@app.route("/api/businesses/<category>", methods=["GET"])
+#@app.route("/api/businesses/<category>", methods=["GET"]) . although i could leave it like this after adjusting the name route i just improvise on it
+#to make my codes more similar
+@app.route("/api/businesses/category/<category>", methods=["GET"])
 def getCategory(category):
    filter_business= []
    for business in data["businesses"]:
      if business["category"] == category: 
       filter_business.append(business) 
    return filter_business
-
-@app.route("/api/businesses/<name>", methods=["GET"])
+#@app.route("/api/businesses/<name>", methods=["GET"])at first i had this rout but because my name flask runing the first route s
+#similar to it which was the category route i had to add another /name to differientiate. 
+@app.route("/api/businesses/name/<name>", methods=["GET"])
 def getbusiness(name):
    for business in data["businesses"]:
       if business["name"] == name:
@@ -172,7 +174,7 @@ if __name__ == "__main__":
 
 
     
-
+#Next working on the REview posting
     
 
 
