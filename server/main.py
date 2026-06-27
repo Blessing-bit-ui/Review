@@ -107,6 +107,15 @@ def getCategory(category):
       filter_business.append(business) 
    return filter_business
 
+@app.route("/api/businesses/<name>", methods=["GET"])
+def getbusiness(name):
+   for business in data["businesses"]:
+      if business["name"] == name:
+         return business
+         
+   return {"message": "Business not found"}, 404
+
+
 @app.route("/api/businesses", methods=["POST"])
 
 def createBusiness():

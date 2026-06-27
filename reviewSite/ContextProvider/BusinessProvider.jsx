@@ -7,6 +7,7 @@ const BusinessContext = createContext();
 function BusinessProvider({children}) {
     const [businesses, setBusinesses] = useState([]);
       const [business, setBusiness] = useState("");
+    const [businessObj, setBusinessObj] = useState({});
       const [selected, setSelected] = useState(null); 
       const [currentCategory, setCurrentCategory] = useState([]);
       const[reviews, setReviews] = useState([]);
@@ -36,15 +37,20 @@ function BusinessProvider({children}) {
          }
 
          async function getbusiness(name){
-          const res = await axios.get(`${Business_URL}/${name}`)
+         const res = await axios.get(
+           `${Business_URL}/${encodeURIComponent(name)}`,
+         ); 
+          //const res = await axios.get(`${Business_URL}/${name}`)
           console.log(res.data)
-          setBusiness(res.data)
+          setBusinessObj(res.data)
          }
       return (
         <BusinessContext.Provider
           value={{
             business,
             setBusiness,
+            setBusinessObj,
+            businessObj,
             selected,
             setSelected,
             businesses,
