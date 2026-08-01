@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useBusiness } from "../ContextProvider/BusinessProvider";
 
+
 function BusinessPage() {
   const [reviewForm, setReviewForm] = useState(false);
   const [writereview, setWriteReview] = useState("");
@@ -17,7 +18,7 @@ function BusinessPage() {
   }, [name]);
 
   return (
-    <div>
+    <div className="bg-lime-600 w-screen h-screen">
       <p> {name}</p>
       <p>{businessObj.name}</p>
       <p>{businessObj.email}</p>
