@@ -98,7 +98,8 @@ def getbusinesses():
 }
 )
 
-#@app.route("/api/businesses/<category>", methods=["GET"]) . although i could leave it like this after adjusting the name route i just improvise on it
+#@app.route("/api/businesses/<category>", methods=["GET"]) . although i could leave it like 
+# this after adjusting the name route i just improvise on it
 #to make my codes more similar
 @app.route("/api/businesses/category/<category>", methods=["GET"])
 def getCategory(category):
@@ -116,7 +117,6 @@ def getbusiness(name):
          return business
          
    return {"message": "Business not found"}, 404
-
 
 @app.route("/api/businesses", methods=["POST"])
 
