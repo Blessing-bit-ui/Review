@@ -3,7 +3,6 @@ import axios from "axios";
 
 const UsersReviewURL="http://127.0.0.1:7000/api/usersreview"
 
-
 const UsersReviewContext = createContext()
 function ReviewProvider({children}){
     const [reviews, setReviews] = useState([]);
@@ -41,7 +40,9 @@ function useReviews(){
     if (context === undefined)
         throw new Error("reviews is use out of context");
     return context
-    
 }
 
 export {useReviews, ReviewProvider}
+
+
+// next time we are setting busineid to id of the business
