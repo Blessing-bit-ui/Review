@@ -1,7 +1,7 @@
 import {useEffect, useState, useContext, createContext} from "react"
 import axios from "axios";
 
-const Business_URL = "http://127.0.0.1:7000/api/businesses";
+const Business_URL ="http://127.0.0.1:7000/api/businesses";
 
 const BusinessContext = createContext();
 function BusinessProvider({children}) {
