@@ -22,7 +22,7 @@ function BusinessPage() {
       <p> {name}</p>
       <p>{businessObj.name}</p>
       <p>{businessObj.email}</p>
-      Give us feedback
+      <button className="bg-white text-green-600 border rounded-lg p-3">Give us feedback</button>
     </div>
   );
 }

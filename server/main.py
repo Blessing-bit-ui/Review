@@ -140,7 +140,7 @@ def createUser():
    data["users"].append(newUser)
    return jsonify(newUser), 201
 
-@app.route("/api/usersreview", methods=["GET"])
+@app.route("/api/usersreviews", methods=["GET"])
 def getusersReview():
    return jsonify(
       {
