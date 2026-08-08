@@ -36,20 +36,26 @@ function showReviewForm(){
         <button className="bg-white text-green-600 border rounded-lg p-3" onClick={showReviewForm}>
           Give us feedback
         </button>
+        <div className="mt-4">
         { reviewForm &&(
         <ReviewForm/>
         )
 }
+</div>
     </div>
   );
 }
 
 function ReviewForm() {
+  const [writeReview, setWriteReview] = useState("")
   return (
-    <div>
-      <form>
+    <div className= " bg-white border rounded-md p-3 w-[200px]">
+      <form className="">
         <label>Review Us </label>
-        <input placeholder="Enter Experience" />
+        <input placeholder="Enter Experience" className="border w-[180px]"
+        value={writeReview}
+       onChange={(e)=>setWriteReview(target.value)}
+        />
       </form>
     </div>
   );

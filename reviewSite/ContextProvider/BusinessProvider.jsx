@@ -10,8 +10,8 @@ function BusinessProvider({children}) {
     const [businessObj, setBusinessObj] = useState({});
       const [selected, setSelected] = useState(null); 
       const [currentCategory, setCurrentCategory] = useState([]);
-      const[reviews, setReviews] = useState([]);
-      const [review, setReview] = useState("")
+    //  const[reviews, setReviews] = useState([]);
+      //const [review, setReview] = useState("")
 
       useEffect(function () {
           async function fetchBusinessURL() {
