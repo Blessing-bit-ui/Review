@@ -21,51 +21,55 @@ function BusinessPage() {
   }, [name]);
 
 
-function showReviewForm(){
+/*function showReviewForm(){
   if (reviewForm == false){
     setReviewForm(true)}
     else{
       setReviewForm(false)
     }
     console.log(reviewForm)
-} 
+} */
+function showReviewForm() {
+  setReviewForm((prev) => !prev);
+}
   return (
     <div className="bg-lime-600 w-screen h-screen">
       <p> {name}</p>
-      <p>{businessObj.name}</p>
-      <p>{businessObj.email}</p>
+      <p>{businessObj?.name}</p>
+      <p>{businessObj?.email}</p>
       
-        <button className="bg-white text-green-600 border rounded-lg p-3" onClick={showReviewForm}>
+        <button
+         className="bg-white text-green-600 border rounded-lg p-3" onClick={showReviewForm}>
           Give us feedback
         </button>
         <div className="mt-4">
-        { reviewForm &&(
-        <ReviewForm/>
-        )
+        { reviewForm &&
+        <ReviewForm businessObj={businessObj}/>
 }
 </div>
     </div>
   );
 }
 
-function ReviewForm() {
+function ReviewForm({businessObj}) {
 const [writeReview, setWriteReview] = useState("")
-/*  const { reviews, writeFeedback } = useReviews()
+ const { reviews, writeFeedback } = useReviews()
 
   async function handleReviewForm(e){
     e.preventDefault()
     const newcomment={
-    id:cryto.randomUUID(),
-    business_id,
-    email,
-    username,
-    writeReview,
+    id:crypto.randomUUID(),
+    business_id:businessObj.id,
+    email:businessObj.email,
+    username:businessObj.name,
+    comment:writeReview,
     }
     await writeFeedback(newcomment)
-  }*/
+    setWriteReview("")
+  }
   return (
     <div className=" bg-white border rounded-md p-3 w-[200px]">
-      <form className="">
+      <form onSubmit={handleReviewForm}>
         <label>Review Us </label>
         <input
           placeholder="Enter Experience"

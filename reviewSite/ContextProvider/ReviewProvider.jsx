@@ -1,25 +1,33 @@
 import { useEffect, useState, useContext, createContext } from "react";
 import axios from "axios";
 
-const UsersReviewURL="http://127.0.0.1:7000/api/usersreview"
+const UsersReviewURL="http://127.0.0.1:7000/api/usersreviews"
 
 const UsersReviewContext = createContext()
 function ReviewProvider({children}){
     const [reviews, setReviews] = useState([]);
-    const [review, setReview] = useState("");
+    const [review, setReview] = useState({});
 
     useEffect(function (){
         async function fetchReviews(){
         const res = await axios.get(UsersReviewURL)
-       setReviews(res.usersreviews)
-       console.log(res.usersreviews)
+       setReviews(res.data.usersreviews)
+       console.log(res.data.usersreviews)
     } 
     fetchReviews();
 }, [])
 
     async function writeFeedback(newreview){
         const res = await axios.post(UsersReviewURL, newreview )
-        setReviews((reviews)=>[...reviews, res])
+        setReviews((reviews)=>[...reviews, res.data])
+    }
+
+    async function reviewObj(name){
+        const res = await axios.get(
+            `${UsersReviewURL}/${name}`
+        );
+        setReview(res.data)
+
     }
 
     return(

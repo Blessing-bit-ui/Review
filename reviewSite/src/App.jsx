@@ -9,6 +9,7 @@ import Applayout from '../Applayout';
 import Aboutus from '../InformationComponent.jsx/Aboutus';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
 import { UsersProvider } from '../ContextProvider/UsersProvider';
+import { ReviewProvider } from '../ContextProvider/ReviewProvider';
 import { AuthProvider } from '../ContextProvider/AuthProvider';
 import { useAuth } from '../ContextProvider/AuthProvider';
 import Login from '../Login';
@@ -23,6 +24,7 @@ function App() {
       <BrowserRouter>
         <UsersProvider>
           <BusinessProvider>
+            <ReviewProvider>
             <AuthProvider>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -55,6 +57,7 @@ function App() {
                 <Route path="about_us" element={<Aboutus/>}/>
               </Routes>
             </AuthProvider>
+            </ReviewProvider>
           </BusinessProvider>
         </UsersProvider>
       </BrowserRouter>

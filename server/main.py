@@ -159,7 +159,7 @@ def getusersReview():
 
     #id is better
 
-@app.route("/api/reviews", methods=["POST"])
+@app.route("/api/usersreviews", methods=["POST"])
 def writeReview():
    newcomment = request.get_json()
    reviews.append(newcomment)
