@@ -68,12 +68,15 @@ export default App
 
 function Home(){
   return (
-    <div className="bg-lime-600 w-screen h-screen">
-      <Header />
-      <Vision />
-      <FindBusiness />
-      <BusinessCategoriesList />
-      
+    <div className="bg-[#064e3b]">
+      <div className="shadow-[0_10px_15px_rgba(0,0,0,0.4)] bg-[#020617]">
+        <Header />
+        <Vision />
+      </div>
+      <div className=" w-screen h-screen mt-1">
+        <FindBusiness />
+        <BusinessCategoriesList />
+      </div>
     </div>
   );
 }
@@ -82,22 +85,37 @@ function Header(){
 const { Login, auth } = useAuth();
   return (
     <div>
-      <div className="shadow-[0_5px_0_rgba(0,0,0,0.4)] bg-white p-2 flex justify-between items-center ">
+      <div className="p-2 flex justify-between items-center">
         <div>
-          <h1 className="text-[30px] text-lime-700 font-bold">
+          <h1 className="text-[30px] text-[#ffff] font-[PT_Sans] font-bold">
             African Business Directory
           </h1>
           <p class="text-green-700 font-bold">Discover Africa's MarketPlace</p>
         </div>
         <div className="flex justify-around w-6/12">
-          <NavLink to="/about_us"> About Us</NavLink>
-          <p>Write a review</p>
+          <NavLink
+            to="/about_us"
+            className="text-[#22c55e] hover:underline decoration-[#ffffff] "
+          >
+            {" "}
+            About Us
+          </NavLink>
+          <p className="text-[#22c55e] hover:underline decoration-[#ffffff] ">
+            Write a review
+          </p>
           <RegisterBusiness />
           <UserSignUp />
           <div>
-            {auth ? <>Welcome User</> :
-            <NavLink to="/login">Login</NavLink>
-}
+            {auth ? (
+              <p className="text-[#ffff]">Welcome User</p>
+            ) : (
+              <NavLink
+                to="/login"
+                className="text-[#22c55e] hover:underline decoration-[#ffffff] "
+              >
+                Login
+              </NavLink>
+            )}
           </div>
         </div>
       </div>
@@ -116,32 +134,40 @@ function Vision(){
 function RegisterBusiness(){
   return (
     <div>
-      <NavLink to="/business_registration_form">
+      <NavLink
+        to="/business_registration_form"
+        className="text-[#22c55e] hover:underline decoration-[#ffffff]"
+      >
         Register Business
       </NavLink>
-      
     </div>
   );
 }
 
 function UserSignUp(){
-  return(
+  return (
     <div>
-      <NavLink to="/user_signup_form">
+      <NavLink
+        to="/user_signup_form"
+        className="text-[#22c55e] hover:underline decoration-[#ffffff] "
+      >
         Signup
       </NavLink>
     </div>
-  )
+  );
 }
 
 function Review(){
-  return(
+  return (
     <div>
-      <NavLink to="/review">
+      <NavLink
+        to="/review"
+        className="text-[#22c55e] hover:underline decoration-[#ffffff]"
+      >
         Review
       </NavLink>
     </div>
-  )
+  );
 }
 
 
