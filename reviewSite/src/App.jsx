@@ -145,7 +145,7 @@ function Vision(){
   return (
     <div className="flex w-11/12 justify-between items-center">
       <div>
-        <h1 className="text-[50px]  text-[#22c55e]  w-1\12 font-[Rubik] tracking-[-2pt] leading-tight font-style: italic">
+        <h1 className="text-[50px]  text-[#22c55e]  w-1\12 font-[Rubik] tracking-[-2pt] leading-tight font-style: italic ">
           Shining a Spotlight <br /> on African Businesses <br /> to Increase
           Visibility,
           <br />
@@ -153,7 +153,10 @@ function Vision(){
         </h1>
       </div>
       <div>
-        <img src={Africanmap} className="w-[400px] h-[400px]" />
+        <img
+          src={Africanmap}
+          className="w-[400px] h-[400px]  animate-bounce [animation-duration:5s] animate-pulse [animation-duration:5s]"
+        />
       </div>
     </div>
   );
