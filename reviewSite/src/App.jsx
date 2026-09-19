@@ -76,10 +76,8 @@ function Home(){
           <Discover />
         </div>
       </div>
-      <div className=" w-screen h-screen mt-1">
-        
-          <Vision />
-    
+      <div className="w-full mt-1">
+        <Vision />
 
         <FindBusiness />
         <BusinessCategoriesList />
@@ -143,19 +141,17 @@ function Discover(){
 
 function Vision(){
   return (
-    <div className="flex w-11/12 justify-between items-center">
+    <div className="flex flex-row mt-2">
       <div>
-        <h1 className="text-[50px]  text-[#22c55e]  w-1\12 font-[Rubik] tracking-[-2pt] leading-tight font-style: italic ">
-          Shining a Spotlight <br /> on African Businesses <br /> to Increase
-          Visibility,
-          <br />
-          Build Credibility <br /> and Foster Trust.
+        <h1 className="text-[50px]  text-[#166534] font-bold mt-10 font-[Rubik] tracking-[-2pt] leading-tight font-style: italic ">
+          Shining a Spotlight <br /> on African Businesses to Increase
+          Visibility, Build Credibility <br /> and Foster Trust.
         </h1>
       </div>
       <div>
         <img
           src={Africanmap}
-          className="w-[400px] h-[400px]  animate-bounce [animation-duration:5s] animate-pulse [animation-duration:5s]"
+          className="md: w-full max-w-[500px] h-auto animate-bounce [animation-duration:5s] animate-pulse [animation-duration:5s]"
         />
       </div>
     </div>
