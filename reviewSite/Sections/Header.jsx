@@ -1,4 +1,7 @@
+import { useBusiness } from "../ContextProvider/BusinessProvider";
 import { NavLink } from "react-router-dom";
+
+
 function Header() {
   return (
     <div className=" relative shadow-[0_2px_2px_rgba(0,0,0,0.4)] bg-[#020617] md:h-[100px]">
@@ -15,7 +18,7 @@ function Header() {
           <h3 className="text-[#22c55e] hover:underline decoration-[#ffffff]">
             Categories
           </h3>
-
+          <displayList/>
           <NavLink
             to="/"
             className="text-[#22c55e] hover:underline decoration-[#ffffff]"
@@ -29,3 +32,22 @@ function Header() {
 }
 
 export default Header
+
+function displayList(){
+const { businesses } = useBusiness();
+const busineseCategories = businesses.map((bus) => bus.category);
+
+return(
+    <div>
+        <ul className="text-[#22c55e] hover:underline decoration-[#ffffff]" >
+            {busineseCategories.map((bus, index)=>(
+                <li key={index}>
+                   {bus}
+                </li>
+            ))}
+            
+        </ul>
+    </div>
+)
+
+}
