@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { useBusiness } from "../ContextProvider/BusinessProvider";
 import { NavLink } from "react-router-dom";
 
 
 function Header() {
+    const [displayCategory, setDisplayCategory]=useState(false)
+    function togoDisplay(){
+        setDisplayCategory(displayCategory === false ?  true : false )
+        console.log(displayCategory)
+    }
   return (
     <div className=" relative shadow-[0_2px_2px_rgba(0,0,0,0.4)] bg-[#020617] md:h-[100px]">
       <div className="p-2 flex justify-between items-center">
@@ -15,10 +21,23 @@ function Header() {
           <h3 className="text-[#22c55e] hover:underline decoration-[#ffffff] ">
             Write a review
           </h3>
-          <h3 className="text-[#22c55e] hover:underline decoration-[#ffffff]">
-            Categories
-          </h3>
-          <displayList/>
+          <div className="relative">
+            <h3
+              className="text-[#22c55e] hover:underline decoration-[#ffffff]"
+              onClick={togoDisplay}
+            >
+              Categories
+            </h3>
+            <>
+              {displayCategory && (
+                <div className="absolute top-full left-0 mt-2 w-48
+                 z-50 bg-white shadow-lg">
+                  <DisplayList />
+                </div>
+              )}
+            </>
+          </div>
+
           <NavLink
             to="/"
             className="text-[#22c55e] hover:underline decoration-[#ffffff]"
@@ -33,19 +52,23 @@ function Header() {
 
 export default Header
 
-function displayList(){
+function DisplayList(){
 const { businesses } = useBusiness();
-const busineseCategories = businesses.map((bus) => bus.category);
-
+const businessCategory = businesses.map((bus) => bus.category);
+const businessWithoutDuplicates = [...new Set(businessCategory)];
 return(
-    <div>
+    <div className="relative shadow-[0_2px_2px_rgba(0,0,0,0.4)] bg-[#fffff] md:h-[100px] ">
         <ul className="text-[#22c55e] hover:underline decoration-[#ffffff]" >
-            {busineseCategories.map((bus, index)=>(
+            {businessWithoutDuplicates.map((bus, index)=>(
                 <li key={index}>
-                   {bus}
+                    <NavLink
+              className=" text-[17px] whitespace-nowrap hover:underline "
+              to={`/category/${bus}`}
+            >
+              {bus}
+            </NavLink>
                 </li>
             ))}
-            
         </ul>
     </div>
 )
