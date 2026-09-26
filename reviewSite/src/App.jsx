@@ -7,6 +7,7 @@ import BusinessPage from '../BusinessesComponent/BusinessPage';
 import UsersForm from '../UserComponent/UsersForm';
 import Applayout from '../Applayout';
 import Aboutus from '../InformationComponent.jsx/Aboutus';
+import Footer from '../Sections/Footer';
 import { BusinessProvider } from '../ContextProvider/BusinessProvider';
 import { UsersProvider } from '../ContextProvider/UsersProvider';
 import { ReviewProvider } from '../ContextProvider/ReviewProvider';
@@ -78,9 +79,9 @@ function Home(){
       </div>
       <div className="w-full mt-1">
         <Vision />
-
         <FindBusiness />
         <BusinessCategoriesList />
+        <Footer/>
       </div>
     </div>
   );

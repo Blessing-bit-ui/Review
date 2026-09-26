@@ -10,8 +10,8 @@ const businessWithoutDuplicates = [...new Set(businessCategory)]
 
   return (
     <div className="mt-2">
-      <h1 className= "text-center text-[30px] font-bold">Business Categories</h1>
-      <ul class="flex gap-12 overflow-hidden mt-6">
+      <h1 className="text-center text-[30px] font-bold">Business Categories</h1>
+      <ul class="grid grid-cols-3 gap-6 text-justify">
         {businessWithoutDuplicates.map((bus, index) => (
           <li key={index}>
             <NavLink

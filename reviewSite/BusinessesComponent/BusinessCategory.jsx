@@ -1,4 +1,5 @@
-
+import Header from "../Sections/Header"
+import Footer from "../Sections/Footer"
 import { useParams } from "react-router-dom"
 import { useBusiness } from "../ContextProvider/BusinessProvider"
 import { useState, useEffect } from "react"
@@ -26,6 +27,7 @@ getCategories(category)
 
   return (
     <div>
+      <Header/>
       <div className="shadow-[0_5px_0_rgba(0,0,0,0.4)] bg-white p-2 flex justify-between items-center ">
         <div>
           <h1 className="text-[30px] text-lime-700 font-bold">
