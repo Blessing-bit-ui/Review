@@ -20,6 +20,7 @@ const businessWithoutDuplicates = [...new Set(businessCategory)]
             >
               {bus}
             </NavLink>
+            
           </li>
         ))}
       </ul>
